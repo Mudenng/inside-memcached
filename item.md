@@ -1,3 +1,5 @@
+# Memcached 源码分析 - 内部数据结构之ITEM
+
 ##概览
 Item模块相对于HashTable和Slab的抽象层次更高，它使用HashTable和Slab提供的数据结构接口为Memcached提供存储实际数据对象的基础设施。Item的内部结构相对并不复杂，除了定义了一个用于封装数据的结构体`struct item`外，还维护了一个LRU队列，用于支持对象的淘汰机制，其实该LRU队列并不是只由一条链表组成，而是每个HashTable的槽对应于一个链表，所有这些链表的头、尾节点都保存在`heads`和`tails`两个数组中。另外，对于每个LRU链表，都为其分配了一个用于保存统计信息的结构体`struct itemstats_t`，这些结构体保存在数组`itemstats`中。
 
