@@ -37,7 +37,7 @@ Memcached的启动过程代码位于memcached.c下的main函数中，整个main�
 名称 		   	| 参数选项 	| 含义
 ------------  	| ---------	| ------------
 chunk_size 		| -n  		| slab chunk的最小大小，默认为48字节
-item_size_max 	| -I（大写i）| 存储item的最大大小，1M(默认) ~ 128M
+item_size_max 	| -I（大写i）| 存储item的最大大小，48 Bytes ~ 1M(默认)
 maxbytes 		| -m 		| slab的最大可用内存（也是Memcached的最大可用内存），默认为64M
 
 ##第三部分——初始化线程
